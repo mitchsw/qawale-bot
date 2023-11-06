@@ -12,7 +12,7 @@ impl StonePile {
         match self.0.last() {
             None => PileTop::Empty,
             Some(Stone::Red) => PileTop::RedStone,
-            Some(Stone::Orange) => PileTop::OrangeStone,
+            Some(Stone::White) => PileTop::WhiteStone,
             Some(Stone::Neutral) => PileTop::NeutralStone,
         }
     }
@@ -49,7 +49,7 @@ pub enum PileTop {
     #[default]
     Empty,
     RedStone,
-    OrangeStone,
+    WhiteStone,
     NeutralStone,
 }
 
@@ -58,7 +58,7 @@ impl fmt::Display for PileTop {
         match self {
             PileTop::Empty => write!(f, "."),
             PileTop::RedStone => write!(f, "R"),
-            PileTop::OrangeStone => write!(f, "R"),
+            PileTop::WhiteStone => write!(f, "W"),
             PileTop::NeutralStone => write!(f, "n"),
         }
     }

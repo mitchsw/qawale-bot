@@ -7,7 +7,7 @@ use crate::{stone::Stone, stone_pile::PileTop, path::Path, board::Board, positio
 #[repr(u8)]
 pub enum PlayerColor {
     Red,
-    Orange
+    White
 }
 
 impl PlayerColor {
@@ -16,7 +16,21 @@ impl PlayerColor {
             PileTop::Empty => None,
             PileTop::NeutralStone => None,
             PileTop::RedStone => Some(PlayerColor::Red),
-            PileTop::OrangeStone => Some(PlayerColor::Orange),
+            PileTop::WhiteStone => Some(PlayerColor::White),
+        }
+    }
+
+    pub fn opponent(&self) -> PlayerColor {
+        match self {
+            PlayerColor::Red => PlayerColor::White,
+            PlayerColor::White => PlayerColor::Red
+        }
+    }
+
+    pub fn stone_color(&self) -> Stone {
+        match self {
+            PlayerColor::Red => Stone::Red,
+            PlayerColor::White => Stone::White
         }
     }
 }

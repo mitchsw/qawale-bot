@@ -6,7 +6,7 @@ pub enum Stone {
     #[default]
     Neutral,
     Red,
-    Orange,
+    White,
 }
 
 impl fmt::Display for Stone {
@@ -14,7 +14,7 @@ impl fmt::Display for Stone {
         match self {
             Stone::Neutral => write!(f, "n"),
             Stone::Red => write!(f, "R"),
-            Stone::Orange => write!(f, "O"),
+            Stone::White => write!(f, "W"),
         }
     }
 }
